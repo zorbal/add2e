@@ -1,0 +1,201 @@
+export const ADD2E = {
+  scores: {
+    str: "ADD2E.scores.str.long",
+    dex: "ADD2E.scores.dex.long",
+    con: "ADD2E.scores.con.long",
+    int: "ADD2E.scores.int.long",
+    wis: "ADD2E.scores.wis.long",
+    cha: "ADD2E.scores.cha.long",
+  },
+  roll_type: {
+    result: "=",
+    above: "≥",
+    below: "≤"
+  },
+  sizes_short: {
+    tiny: "ADD2E.sizes.tiny.short",
+    small: "ADD2E.sizes.small.short",
+    man: "ADD2E.sizes.man.short",
+    large: "ADD2E.sizes.large.short",
+    huge: "ADD2E.sizes.huge.short",
+    gargantuan: "ADD2E.sizes.gargantuan.short",
+  },
+  sizes_long: {
+    tiny: "ADD2E.sizes.tiny.long",
+    small: "ADD2E.sizes.small.long",
+    man: "ADD2E.sizes.man.long",
+    large: "ADD2E.sizes.large.long",
+    huge: "ADD2E.sizes.huge.long",
+    gargantuan: "ADD2E.sizes.gargantuan.long",
+  },
+  weapon_sizes_short: {
+    small: "ADD2E.weapons.sizes.small.short",
+    medium: "ADD2E.weapons.sizes.medium.short",
+    large: "ADD2E.weapons.sizes.large.short",
+  },
+  weapon_sizes_long: {
+    small: "ADD2E.weapons.sizes.small.long",
+    medium: "ADD2E.weapons.sizes.medium.long",
+    large: "ADD2E.weapons.sizes.large.long",
+  },
+  saves_short: {
+    death: "ADD2E.saves.death.short",
+    wand: "ADD2E.saves.wand.short",
+    petrify: "ADD2E.saves.petrify.short",
+    breath: "ADD2E.saves.breath.short",
+    spell: "ADD2E.saves.spell.short",
+  },
+  saves_long: {
+    death: "ADD2E.saves.death.long",
+    wand: "ADD2E.saves.wand.long",
+    petrify: "ADD2E.saves.petrify.long",
+    breath: "ADD2E.saves.breath.long",
+    spell: "ADD2E.saves.spell.long",
+  },
+  schools_long: {
+    abjur: "ADD2E.spells.school.abjur.long",
+    alter: "ADD2E.spells.school.alter.long",
+    conjur: "ADD2E.spells.school.conjur.long",
+    enchant: "ADD2E.spells.school.enchant.long",
+    illus: "ADD2E.spells.school.illus.long",
+    invoc: "ADD2E.spells.school.invoc.long",
+    divin: "ADD2E.spells.school.divin.long",
+    necro: "ADD2E.spells.school.necro.long",
+  },
+  armor : {
+    unarmored: "ADD2E.armor.unarmored",
+    light: "ADD2E.armor.light",
+    heavy: "ADD2E.armor.heavy",
+    shield: "ADD2E.armor.shield",
+  },
+  colors: {
+    green: "ADD2E.colors.green",
+    red: "ADD2E.colors.red",
+    yellow: "ADD2E.colors.yellow",
+    purple: "ADD2E.colors.purple",
+    blue: "ADD2E.colors.blue",
+    orange: "ADD2E.colors.orange",
+    white: "ADD2E.colors.white"
+  },
+  languages: [
+    "Common",
+    "Lawful",
+    "Chaotic",
+    "Neutral",
+    "Bugbear",
+    "Doppelgänger",
+    "Dragon",
+    "Dwarvish",
+    "Elvish",
+    "Gargoyle",
+    "Gnoll",
+    "Gnomish",
+    "Goblin",
+    "Halfling",
+    "Harpy",
+    "Hobgoblin",
+    "Kobold",
+    "Lizard Man",
+    "Medusa",
+    "Minotaur",
+    "Ogre",
+    "Orcish",
+    "Pixie"
+  ],
+  tags: {
+    melee: "ADD2E.items.Melee",
+    missile: "ADD2E.items.Missile",
+    slow: "ADD2E.items.Slow",
+    twohanded: "ADD2E.items.TwoHanded",
+    blunt: "ADD2E.items.Blunt",
+    brace: "ADD2E.items.Brace",
+    splash: "ADD2E.items.Splash",
+    reload: "ADD2E.items.Reload",
+    charge: "ADD2E.items.Charge",
+  },
+  tag_images: {
+    melee: "/systems/add2e/assets/melee.png",
+    missile: "/systems/add2e/assets/missile.png",
+    slow: "/systems/add2e/assets/slow.png",
+    twohanded: "/systems/add2e/assets/twohanded.png",
+    blunt: "/systems/add2e/assets/blunt.png",
+    brace: "/systems/add2e/assets/brace.png",
+    splash: "/systems/add2e/assets/splash.png",
+    reload: "/systems/add2e/assets/reload.png",
+    charge: "/systems/add2e/assets/charge.png",
+  },
+  monster_saves: {
+    0: {
+      label: "Normal Human",
+      d: 14,
+      w: 15,
+      p: 16,
+      b: 17,
+      s: 18
+    },
+    1: {
+      label: "1-3",
+      d: 12,
+      w: 13,
+      p: 14,
+      b: 15,
+      s: 16
+    },
+    4: {
+      label: "4-6",
+      d: 10,
+      w: 11,
+      p: 12,
+      b: 13,
+      s: 14
+    },
+    7: {
+      label: "7-9",
+      d: 8,
+      w: 9,
+      p: 10,
+      b: 10,
+      s: 12
+    },
+    10: {
+      label: "10-12",
+      d: 6,
+      w: 7,
+      p: 8,
+      b: 8,
+      s: 10
+    },
+    13: {
+      label: "13-15",
+      d: 4,
+      w: 5,
+      p: 6,
+      b: 5,
+      s: 8
+    },
+    16: {
+      label: "16-18",
+      d: 2,
+      w: 3,
+      p: 4,
+      b: 3,
+      s: 6
+    },
+    19: {
+      label: "19-21",
+      d: 2,
+      w: 2,
+      p: 2,
+      b: 2,
+      s: 4
+    },
+    22: {
+      label: "22+",
+      d: 2,
+      w: 2,
+      p: 2,
+      b: 2,
+      s: 2
+    },
+  }
+};
