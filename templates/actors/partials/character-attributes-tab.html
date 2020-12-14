@@ -1,0 +1,261 @@
+<section class="attributes-tab flexrow">
+    {{!-- Scores --}}
+    <div class="attribute-group">
+        <div class="modifiers-btn">
+            {{#unless isNew}}
+            <a data-action="modifiers" title="{{localize 'ADD2E.Modifiers'}}"><i class="fas fa-book"></i></a>
+            {{else}}
+            <a data-action="generate-scores" title="{{localize 'ADD2E.dialog.generateScores'}}"><i class="fas fa-dice blinking"></i></a>
+            {{/unless}}
+        </div>
+        <ul class="attributes">
+            <li class="attribute ability-score" data-score="str">
+                <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.scores.str.long' }}">
+                    <a>{{ localize "ADD2E.scores.str.short" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.scores.str.value" type="text" value="{{data.scores.str.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+		{{#if data.exstr.enabled}}
+                <div class="exceptional-str">
+		  <input name="data.scores.str.ex.value" type="text" value="{{data.scores.str.ex.value}}" placeholder="0" data-dtype="Number" />
+		</div>
+                {{/if}}
+            </li>
+           <li class="attribute ability-score" data-score="dex">
+                <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.scores.dex.long' }}">
+                    <a>{{ localize "ADD2E.scores.dex.short" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.scores.dex.value" type="text" value="{{data.scores.dex.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            <li class="attribute ability-score" data-score="con">
+                <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.scores.con.long' }}">
+                    <a>{{ localize "ADD2E.scores.con.short" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.scores.con.value" type="text" value="{{data.scores.con.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            <li class="attribute ability-score" data-score="int">
+                <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.scores.int.long' }}">
+                    <a>{{ localize "ADD2E.scores.int.short" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.scores.int.value" type="text" value="{{data.scores.int.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            <li class="attribute ability-score" data-score="wis">
+                <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.scores.wis.long' }}">
+                    <a>{{ localize "ADD2E.scores.wis.short" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.scores.wis.value" type="text" value="{{data.scores.wis.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            <li class="attribute ability-score" data-score="cha">
+                <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.scores.cha.long' }}">
+                    <a>{{ localize "ADD2E.scores.cha.short" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.scores.cha.value" type="text" value="{{data.scores.cha.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            {{#if data.henchmen.enabled}}
+            <li class="attribute ability-score" data-stat="lr">
+                <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.Loyalty' }}">
+                    <a>{{ localize "ADD2E.LoyaltyShort" }}</a>
+                </h4>
+                <div class="attribute-value">
+                    <input name="data.henchmen.loyalty" type="text" value="{{data.henchmen.loyalty}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+    {{!-- Resource Tracking --}}
+    <div class="resources">
+        <div class="flexrow">
+            <div class="health">
+                <input class="health-value health-top" name="data.hp.value" type="text" value="{{data.hp.value}}"
+                    data-dtype="Number" placeholder="0" title="{{localize 'ADD2E.Health'}}" />
+                <input class="health-value health-bottom" name="data.hp.max" type="text" value="{{data.hp.max}}"
+                    data-dtype="Number" placeholder="0" title="{{localize 'ADD2E.HealthMax'}}" />
+                <div class="health-empty" style="height:{{counter false data.hp.value data.hp.max}}%"></div>
+                <div class="health-full" style="height:{{counter true data.hp.value data.hp.max}}%"></div>
+            </div>
+            <div class="health armor-class">
+                {{#if config.ascendingAC}}
+                <div class="health-value health-top" title="{{localize 'ADD2E.ArmorClass'}}">{{data.aac.value}}</div>
+                <div class="health-value health-bottom" title="{{localize 'ADD2E.ArmorClassNaked'}}">
+                    {{data.aac.naked}}</div>
+                    {{#if data.aac.shield}}<div class="shield" title="{{localize 'ADD2E.items.hasShield'}} ({{data.aac.shield}})"><i
+                            class="fas fa-shield-alt"></i></div>{{/if}}
+                {{else}}
+                <div class="health-value health-top" title="{{localize 'ADD2E.ArmorClass'}}">{{data.ac.value}}</div>
+                <div class="health-value health-bottom" title="{{localize 'ADD2E.ArmorClassNaked'}}">
+                    {{data.ac.naked}}</div>
+                    {{#if data.ac.shield}}<div class="shield" title="{{localize 'ADD2E.items.hasShield'}} ({{data.ac.shield}})"><i
+                            class="fas fa-shield-alt"></i></div>{{/if}}
+                {{/if}}
+            </div>
+        </div>
+        <div class="flexrow">
+            <ul class="attributes flexrow">
+                <li class="attribute hit-dice">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.HitDice' }}">
+                        <a>{{ localize "ADD2E.HitDiceShort" }}</a>
+                    </h4>
+                    <div class="attribute-value">
+                        <input name="data.hp.hd" type="text" value="{{data.hp.hd}}" placeholder=""
+                            data-dtype="String" />
+                    </div>
+                </li>
+                {{#if config.initiative}}
+                <li class="attribute">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.Initiative' }}">
+                        {{ localize "ADD2E.InitiativeShort" }}</h4>
+                    {{#if config.dexterityInitiative}}
+                      <div class="attribute-value"
+                        title="{{localize 'ADD2E.scores.dex.long'}}({{localize 'ADD2E.Modifier'}}({{data.initiative.mod}} - {{data.scores.dex.dreaction}})">
+                        {{mod (subtract data.scores.dex.dreaction data.initiative.mod)}}
+                      </div>
+                    {{else}}
+                      <div class="attribute-value"
+                        title="{{localize 'ADD2E.scores.dex.long'}}({{localize 'ADD2E.Modifier'}}({{data.initiative.mod}})">
+                        {{data.initiative.mod}}
+                      </div>
+                    {{/if}}
+
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="flexrow">
+            <ul class="attributes flexrow">
+                <li class="attribute attribute-secondaries attack" data-attack="melee">
+                    <h4 class="attribute-name box-title" title="{{localize 'ADD2E.Melee'}}">
+                        <a>{{localize 'ADD2E.MeleeShort'}}</a></h4>
+                    <div class="flexrow">
+                        <div class="attribute-value"
+                            title="{{localize 'ADD2E.scores.str.long'}}({{data.scores.str.hitprob}}) + {{localize 'ADD2E.Modifier'}}({{data.thac0.mod.melee}})">
+                            {{mod (add data.scores.str.hitprob data.thac0.mod.melee)}}
+                        </div>
+                    </div>
+                </li>
+                {{#if config.ascendingAC}}
+                <li class="attribute">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.AB' }}">{{ localize "ADD2E.ABShort"}}
+                    </h4>
+                    <div class="flexrow">
+                        <div class="attribute-value">
+                            <input name="data.thac0.bba" type="text" value="{{data.thac0.bba}}" placeholder="0"
+                                data-dtype="Number" />
+                        </div>
+                    </div>
+                </li>
+                {{else}}
+                <li class="attribute">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.Thac0' }}">{{ localize "ADD2E.Thac0"}}
+                    </h4>
+                    <div class="flexrow">
+                        <div class="attribute-value">
+                            <input name="data.thac0.value" type="text" value="{{data.thac0.value}}" placeholder="0"
+                                data-dtype="Number" />
+                        </div>
+                    </div>
+                </li>
+                {{/if}}
+                <li class="attribute attribute-secondaries attack" data-attack="missile">
+                    <h4 class="attribute-name box-title" title="{{localize 'ADD2E.Missile'}}">
+                        <a>{{localize 'ADD2E.MissileShort'}}</a></h4>
+                    <div class="flexrow">
+                        <div class="attribute-value"
+                            title="{{localize 'ADD2E.scores.dex.long'}}({{data.scores.dex.missileadj}}) + {{localize 'ADD2E.Modifier'}}({{data.thac0.mod.missile}})">
+                            {{mod (add data.scores.dex.missileadj data.thac0.mod.missile)}}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="flexrow">
+            <ul class="attributes flexrow">
+                <li class="attribute">
+                    <h4 class="attribute-name box-title" title="{{localize 'ADD2E.movement.base'}}">
+                        {{localize 'ADD2E.movementbase.short'}}</h4>
+                    <div class="flexrow">
+                        <div class="attribute-value">
+                           <input name="data.movement.base" type="text" value="{{data.movement.base}}" placeholder="0" data-dtype="Number" />
+                        </div>
+                    </div>
+                </li>
+                <li class="attribute attribute-secondaries">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.movement.exploration.long' }}">
+                        {{ localize "ADD2E.movement.current.short" }}</h4>
+                    <div class="attribute-value flex-row">
+                        {{data.movement.enc}}
+                    </div>
+                </li>
+                <li class="attribute attribute-secondaries">
+                    <h4 class="attribute-name box-title" title="{{localize 'ADD2E.movement.overland.long'}}">
+                        {{localize 'ADD2E.movement.overland.short'}}</h4>
+                    <div class="flexrow">
+                        <div class="attribute-value">
+                            {{mult data.movement.enc 2}}
+                        </div>
+                    </div>
+                </li>
+  
+            </ul>
+        </div>
+    </div>
+    {{!-- Saving throws --}}
+    <div class="attribute-group">
+        <ul class="attributes">
+            <li class="attribute saving-throw" data-save="death">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ADD2E.saves.death.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.death.value" type="text" value="{{data.saves.death.value}}" placeholder="0"
+                        data-dtype="Number" />
+            </li>
+            <li class="attribute saving-throw" data-save="wand">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ADD2E.saves.wand.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.wand.value" type="text" value="{{data.saves.wand.value}}" placeholder="0"
+                        data-dtype="Number" />
+            </li>
+            <li class="attribute saving-throw" data-save="petrify">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ADD2E.saves.petrify.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.petrify.value" type="text" value="{{data.saves.petrify.value}}"
+                        placeholder="0" data-dtype="Number" />
+            </li>
+            <li class="attribute saving-throw" data-save="breath">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ADD2E.saves.breath.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.breath.value" type="text" value="{{data.saves.breath.value}}"
+                        placeholder="0" data-dtype="Number" />
+            </li>
+            <li class="attribute saving-throw" data-save="spell">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ADD2E.saves.spell.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.spell.value" type="text" value="{{data.saves.spell.value}}"
+                        placeholder="0" />
+            </li>
+            <li class="attribute saving-throw">
+                <h4 class="attribute-name box-title" title="{{ localize 'ADD2E.saves.magic.long' }}">
+                    {{ localize "ADD2E.saves.magic.long"}}</h4>
+                <div class="attribute-value flat" title="{{localize 'ADD2E.scores.wis.long'}}({{data.scores.wis.magdef}})">
+                    {{mod data.scores.wis.magdef}}
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

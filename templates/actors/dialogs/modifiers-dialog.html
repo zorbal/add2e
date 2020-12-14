@@ -1,0 +1,174 @@
+<form autocomplete="off">
+  <div class="attribute-bonuses">
+    <label>{{localize 'ADD2E.scores.str.long'}} ({{data.scores.str.value}})</label>
+    <ol>
+      <li>
+        {{#if data.scores.str.hitprob}}
+          {{localize 'ADD2E.mods.hitprob'}} ({{mod data.scores.str.hitprob}})
+        {{else}}
+          {{localize 'ADD2E.mods.hitprob'}} (Normal)
+        {{/if}}
+      </li>
+      <li>
+        {{#if data.scores.str.dmgadj}}
+          {{localize 'ADD2E.mods.dmgadj'}} ({{mod data.scores.str.dmgadj}})
+        {{else}}
+          {{localize 'ADD2E.mods.dmgadj'}} (None)
+        {{/if}}
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.weightallow'}} ({{data.scores.str.weightallow}} lbs.)
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.maxpress'}} ({{data.scores.str.maxpress}} lbs.)
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.opendoors'}} ({{data.scores.str.opendoors}} in 20)
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.bendbars'}} ({{data.scores.str.bendbars}}%)
+      </li>
+    </ol>
+  </div>
+
+  <div class="attribute-bonuses">
+    <label>{{localize 'ADD2E.scores.dex.long'}} ({{data.scores.dex.value}})</label>
+    <ol>
+      <li>
+        {{localize 'ADD2E.mods.dreaction'}} ({{mod data.scores.dex.dreaction}})
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.missileadj'}} ({{mod data.scores.dex.missileadj}})
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.defadj'}} ({{mod data.scores.dex.defadj}})
+      </li>
+    </ol>
+  </div>
+
+  <div class="attribute-bonuses">
+    <label>{{localize 'ADD2E.scores.con.long'}} ({{data.scores.con.value}})</label>
+    <ol>
+      <li>
+        {{localize 'ADD2E.mods.hpadj'}} ({{mod data.scores.con.hpadj}})
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.shock'}} ({{data.scores.con.shock}}%)
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.resurrection'}} ({{data.scores.con.resurrection}}%)
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.poisonsave'}} ({{mod data.scores.con.poisonsave}})
+      </li>
+     <li>
+        {{#if data.scores.con.regen}}
+          {{localize 'ADD2E.mods.regen'}} (1/{{data.scores.con.regen}} turns)
+        {{else}}
+          {{localize 'ADD2E.mods.regen'}} (Nil)
+        {{/if}}
+      </li>
+    </ol>
+  </div>
+
+  <div class="attribute-bonuses">
+    <label>{{localize 'ADD2E.scores.int.long'}} ({{data.scores.int.value}})</label>
+    <ol>
+      <li>
+        {{localize 'ADD2E.mods.numlang'}} ({{data.scores.int.numlang}})
+      </li>
+     <li>
+        {{#if data.scores.int.spelllevel}}
+          {{localize 'ADD2E.mods.spelllevel'}} ({{data.scores.int.spelllevel}}th)
+        {{else}}
+          {{localize 'ADD2E.mods.spelllevel'}} (&mdash;)
+        {{/if}}
+      </li>
+     <li>
+        {{#if data.scores.int.learnspell}}
+          {{localize 'ADD2E.mods.learnspell'}} ({{data.scores.int.learnspell}}%)
+        {{else}}
+          {{localize 'ADD2E.mods.learnspell'}} (&mdash;)
+        {{/if}}
+      </li>
+     <li>
+        {{#if (eq data.scores.int.maxspells 9999)}}
+          {{localize 'ADD2E.mods.maxspells'}} (All)
+        {{else if data.scores.int.maxspells}}
+          {{localize 'ADD2E.mods.maxspells'}} ({{data.scores.int.maxspells}})
+        {{else}}
+          {{localize 'ADD2E.mods.maxspells'}} (&mdash;) 
+        {{/if}}
+      </li>
+     <li>
+        {{#if (eq data.scores.int.illimmune 1)}}
+          {{localize 'ADD2E.mods.illimmune'}} (1st-lvl illusions)
+        {{else if (eq data.scores.int.illimmune 2)}}
+          {{localize 'ADD2E.mods.illimmune'}} (1st-2nd-lvl illusions)
+        {{else if (eq data.scores.int.illimmune 3)}}
+          {{localize 'ADD2E.mods.illimmune'}} (1st-3rd-lvl illusions)
+        {{else if (eq data.scores.int.illimmune 4)}}
+          {{localize 'ADD2E.mods.illimmune'}} (1st-4th-lvl illusions)
+        {{else if (eq data.scores.int.illimmune 5)}}
+          {{localize 'ADD2E.mods.illimmune'}} (1st-5th-lvl illusions)
+        {{else if (eq data.scores.int.illimmune 6)}}
+          {{localize 'ADD2E.mods.illimmune'}} (1st-6th-lvl illusions)
+        {{else if (eq data.scores.int.illimmune 7)}}
+          {{localize 'ADD2E.mods.illimmune'}} (1st-7th-lvl illusions)
+        {{else}}
+          {{localize 'ADD2E.mods.illimmune'}} (&mdash;)
+        {{/if}}
+      </li>
+    </ol>
+  </div>
+  <div class="attribute-bonuses">
+    <label>{{localize 'ADD2E.scores.wis.long'}} ({{data.scores.wis.value}})</label>
+    <ol>
+      <li>
+        {{localize 'ADD2E.mods.magdef'}} ({{mod data.scores.wis.magdef}})
+      </li>
+
+     <li>
+        {{localize 'ADD2E.mods.bonusspells'}} ({{mod data.scores.wis.bonusspells}})
+      </li>
+
+      <li>
+
+       {{#if (eq data.scores.wis.bonusspells 1)}}{{localize 'ADD2E.mods.bonusspells'}} (1st)
+          {{else if (eq data.scores.wis.bonusspells 2)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st)
+          {{else if (eq data.scores.wis.bonusspells 3)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 2nd)
+          {{else if (eq data.scores.wis.bonusspells 4)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 2nd, 2nd)
+          {{else if (eq data.scores.wis.bonusspells 5)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 2nd, 2nd, 3rd)
+          {{else if (eq data.scores.wis.bonusspells 6)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 2nd, 2nd, 3rd, 4th)
+          {{else if (eq data.scores.wis.bonusspells 7)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 1st, 2nd, 2nd, 3rd, 4th, 4th)
+          {{else if (eq data.scores.wis.bonusspells 8)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 1st, 2nd, 2nd, 2nd, 3rd, 4th, 4th, 4th)
+          {{else if (eq data.scores.wis.bonusspells 9)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 1st, 2nd, 2nd, 2nd, 3rd, 3rd, 4th, 4th, 4th, 5th)
+          {{else if (eq data.scores.wis.bonusspells 10)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 1st, 2nd, 2nd, 2nd, 3rd, 3rd, 4th, 4th, 4th, 4th, 5th, 5th)
+          {{else if (eq data.scores.wis.bonusspells 11)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 1st, 2nd, 2nd, 2nd, 3rd, 3rd, 4th, 4th, 4th, 4th, 5th, 5th, 5th, 5th)
+          {{else if (eq data.scores.wis.bonusspells 12)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 1st, 2nd, 2nd, 2nd, 3rd, 3rd, 4th, 4th, 4th, 4th, 5th, 5th, 5th, 5th, 6th, 6th)
+          {{else if (eq data.scores.wis.bonusspells 13)}} {{localize 'ADD2E.mods.bonusspells'}} (1st, 1st, 1st, 2nd, 2nd, 2nd, 3rd, 3rd, 4th, 4th, 4th, 4th, 5th, 5th, 5th, 5th, 6th, 6th, 6th, 7th)
+          {{else}}{{localize 'ADD2E.mods.bonusspells'}} (&mdash;)
+        {{/if}}
+
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.spellfail'}} ({{data.scores.wis.spellfail}}%)
+      </li>
+    </ol>
+  </div>
+
+  <div class="attribute-bonuses">
+    <label>{{localize 'ADD2E.scores.cha.long'}} ({{data.scores.cha.value}})</label>
+    <ol>
+      <li>
+        {{localize 'ADD2E.mods.maxhenchmen'}} ({{data.scores.cha.maxhenchmen}})
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.loyaltybase'}} ({{mod data.scores.cha.loyaltybase}})
+      </li>
+      <li>
+        {{localize 'ADD2E.mods.creaction'}} ({{mod data.scores.cha.creaction}})
+      </li>
+    </ol>
+  </div>
+</form>

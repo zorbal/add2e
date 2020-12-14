@@ -1,0 +1,94 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-col">
+      <h1 class="charname">
+        <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
+      </h1>
+
+      <ol class="tag-list">
+        {{#each data.tags as |tag|}}
+        <li class="tag" title="{{tag.title}}" data-tag="{{tag.value}}">
+          <span>{{tag.value}}</span>
+          <a class="tag-delete"><i class="fas fa-times"></i></a>
+        </li>
+        {{/each}}
+      </ol>
+
+    </div>
+  </header>
+  <section class="sheet-body">
+    <div class="flexrow">
+      <div class="stats narrow">
+        <div class="form-group">
+          <div class="form-fields">
+            <input
+              type="text"
+              data-action="add-tag"
+              title="{{localize 'ADD2E.spells.typeTag'}}"
+              placeholder="{{localize 'ADD2E.spells.enterTag'}}"
+              />
+          </div>
+        </div>
+        <div class="form-group block-input">
+          <label>{{localize 'ADD2E.spells.Range'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.range" value="{{data.range}}" data-dtype="String" />
+          </div>
+        </div>
+        <div class="form-group block-input">
+          <label>{{localize 'ADD2E.spells.Components'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.components" value="{{data.components}}" data-dtype="String" />
+          </div>
+        </div>
+        <div class="form-group block-input">
+          <label>{{localize 'ADD2E.spells.Duration'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.duration" value="{{data.duration}}" data-dtype="String" />
+          </div>
+        </div>
+        <div class="form-group block-input">
+          <label>{{localize 'ADD2E.spells.CastingTime'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.castingtime" value="{{data.castingtime}}" data-dtype="String" />
+          </div>
+        </div>
+        <div class="form-group block-input">
+          <label>{{localize 'ADD2E.spells.AreaOfEffect'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.areaofeffect" value="{{data.areaofeffect}}" data-dtype="String" />
+          </div>
+        </div>
+        <div class="form-group block-input">
+          <label>{{localize 'ADD2E.spells.SavingThrow'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.savingthrow" value="{{data.savingthrow}}" data-dtype="String" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-fields">
+            <select name="data.save">
+              {{#select data.save}}
+              <option value=""></option>
+              {{#each config.saves_short as |save a|}}
+              <option value="{{a}}">{{save}}</option>
+              {{/each}}
+              {{/select}}
+            </select>
+          </div>
+        </div>
+        <div class="form-group block-input">
+          <label>{{localize 'ADD2E.items.Roll'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.roll" value="{{data.roll}}" data-dtype="String" />
+          </div>
+        </div>
+      </div>
+      <div class="description">
+        {{editor content=data.description target="data.description" button=true
+        owner=owner editable=editable}}
+      </div>
+    </div>
+  </section>
+</form>

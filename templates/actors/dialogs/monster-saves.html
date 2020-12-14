@@ -1,0 +1,14 @@
+<form class="add2e dialog">
+    <div class="form-group">
+        <label>{{localize 'ADD2E.HitDice'}}</label>
+        <div class="form-fields">
+            <select name="choice">
+                {{#select choices}}
+                {{#each choices as |saves mode|}}
+                <option value="{{mode}}">{{saves.label}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+        </div>
+    </div>
+</div>
